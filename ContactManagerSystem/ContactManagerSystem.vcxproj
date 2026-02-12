@@ -127,7 +127,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="C_ContactClass.cpp" />
+    <ClCompile Include="F_ContactManagerFunctions.cpp" />
+    <ClCompile Include="F_Utild.cpp" />
     <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C_ContactClass.h" />
+    <ClInclude Include="F_ContactManagerFunction.h" />
+    <ClInclude Include="F_Utils.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
