@@ -36,6 +36,7 @@ std::vector<std::tuple<std::string, std::string, std::string>> ContactList::getC
 void ContactList::pushContactList(std::string name, std::string number, std::string mail) {
 	m_ContactList.push_back({ name, number, mail });
 }
+
 auto ContactList::begin() { return ContactList::m_ContactList.begin(); }
 auto ContactList::end() { return ContactList::m_ContactList.end(); }
 auto ContactList::erase(size_t index) {

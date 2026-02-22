@@ -113,6 +113,7 @@ std::string addCountry() {
 
 		cout << "Format: ";
 		std::getline(std::cin, country);
+		cout << "\n";
 
 		while (country.empty()) {
 			cout << Log::getError() << "Input empty.\n";
@@ -163,11 +164,17 @@ std::string addMail(const uint16_t maxCharName, const std::array<std::string, 5>
 			countChar++;
 		}
 
-		if (countChar > maxCharName) {
-			cout << Log::getError() << "Mail name to long max character before @: " << maxCharName << "\n";
+		if (countChar <= 0) {
+			cout << Log::getError() << "Mail name is empty try again.\n";
 			cout << "----------------\n\n";
 			continue;
 		}
+
+		else if (countChar > maxCharName) {
+			cout << Log::getError() << "Mail name to long max character before @: " << maxCharName << "\n";
+			cout << "----------------\n\n";
+			continue;
+		}  
 
 		std::string mailDomaine = mail.substr(mail.find('@') + 1);
 		bool bIsDomaineValid = false;
@@ -218,14 +225,12 @@ void addContact(const uint16_t maxCharName, const std::array<std::string, 5> dom
 
 
 
-	cout << "Contact added.\n";
+	cout << "New contact added!\n";
+	cout << "Contact description.\n";
 	cout << "Name: " << contact.getName() << "\n";
 	cout << "Phone number: ";
-
 	printPhoneNumber(country, number);
-
 	cout << "\n";
-
 	cout << "Mail adress: " << contact.getMail() << "\n";
 	cout << "\n\n";
 }
@@ -253,6 +258,7 @@ void printPhoneNumber(const std::string country, const std::string number) {
 		std::printf("1+ (%s) %s-%s", firstDigits.c_str(), midDigits.c_str(), lastDigits.c_str());
 	}
 }
+
 void showContactList(ContactList contactList) {
 	std::string sleepEnter;
 	cout << "######################\n";
@@ -278,11 +284,8 @@ void showContactList(ContactList contactList) {
 }
 
 void removeContact(ContactList& contactList) {
-	cout << "################\n";
-	cout << "Remove a Contact\n";
-	cout << "################\n\n";
-
 	showContactList(contactList);
+
 
 
 }
